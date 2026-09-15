@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090604">
+
+<title>Ceyhan Kebap Salonu | Premium Ocakbaşı Deneyimi</title>
+
+<meta name="description"
+content="Ceyhan Kebap Salonu için hazırlanmış premium restoran web sitesi tasarım önizlemesi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080604;
+  --bg2:#0e0a07;
+  --panel:#15100c;
+  --panel2:#1c1510;
+  --cream:#f3e6d0;
+  --cream2:#cbbba5;
+  --muted:#8f8275;
+  --orange:#d94a21;
+  --orange2:#ff7140;
+  --line:rgba(243,230,208,.14);
+  --white:#fff;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:"DM Sans",Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+body::-webkit-scrollbar{width:7px}
+body::-webkit-scrollbar-track{background:#080604}
+body::-webkit-scrollbar-thumb{background:#66311e}
+
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
+button{font:inherit}
+::selection{background:var(--orange);color:#fff}
+
+.container{
+  width:min(1380px,91%);
+  margin:auto;
+}
+
+.section{
+  padding:145px 0;
+}
+
+.micro{
+  font-size:8px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#75695e;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:.85s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* LOADER */
+
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#050302;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.7s;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-logo{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,7vw,80px);
+  text-align:center;
+}
+
+.loader-logo em{
+  color:var(--orange2);
+}
+
+.loader-logo small{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-style:normal;
+  margin-top:15px;
+  font-size:7px;
+  letter-spacing:6px;
+  color:#78695c;
+}
+
+.load-line{
+  width:220px;
+  height:1px;
+  background:#2c1c14;
+  margin:25px auto 0;
+  overflow:hidden;
+}
+
+.load-line::after{
+  content:"";
+  display:block;
+  height:100%;
+  width:40%;
+  background:var(--orange);
+  animation:loading 1s infinite ease-in-out;
+}
+
+@keyframes loading{
+  from{transform:translateX(-120%)}
+  to{transform:translateX(350%)}
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  z-index:500;
+  top:0;
+  left:0;
+  right:0;
+  height:86px;
+  transition:.35s;
+}
+
+nav.scrolled{
+  background:rgba(8,6,4,.9);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  line-height:.9;
+}
+
+.logo em{
+  color:var(--orange2);
+}
+
+.logo small{
+  display:block;
+  margin-top:8px;
+  font-family:"DM Sans",sans-serif;
+  font-style:normal;
+  font-size:6px;
+  letter-spacing:4px;
+  color:#8e7f72;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:27px;
+}
+
+.nav-links a{
+  font-size:8px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#b7a99b;
+  transition:.25s;
+}
+
+.nav-links a:hover{color:white}
+
+.nav-cta{
+  border:1px solid rgba(255,255,255,.3);
+  padding:13px 18px;
+}
+
+.nav-cta:hover{
+  background:var(--cream);
+  color:#080604!important;
+}
+
+.mobile-menu{
+  display:none;
+  font-size:8px;
+  letter-spacing:3px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+
+.hero-media{
+  position:absolute;
+  inset:0;
+}
+
+.hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.04);
+}
+
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(6,3,2,.97),rgba(6,3,2,.58) 48%,rgba(6,3,2,.12)),
+    linear-gradient(0deg,#080604 0%,rgba(8,6,4,.1) 50%);
+}
+
+.hero-glow{
+  position:absolute;
+  width:500px;
+  height:500px;
+  right:5%;
+  bottom:0;
+  background:radial-gradient(circle,rgba(217,74,33,.18),transparent 67%);
+  filter:blur(20px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  padding-bottom:65px;
+  width:100%;
+}
+
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-size:8px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#baa895;
+  margin-bottom:24px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:45px;
+  height:1px;
+  background:var(--orange);
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(72px,11.5vw,170px);
+  line-height:.72;
+  letter-spacing:-8px;
+  font-weight:500;
+}
+
+.hero h1 span{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(243,230,208,.7);
+}
+
+.hero-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:40px;
+  margin-top:45px;
+}
+
+.hero-copy{
+  max-width:530px;
+  color:#b3a497;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  min-height:56px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:0 25px;
+  border:1px solid var(--cream);
+  background:var(--cream);
+  color:#0c0805;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:white;
+  transform:translateY(-3px);
+}
+
+.btn.outline{
+  background:transparent;
+  color:white;
+  border-color:rgba(255,255,255,.32);
+}
+
+.btn.outline:hover{
+  background:white;
+  color:#080604;
+  border-color:white;
+}
+
+/* TICKER */
+
+.ticker{
+  background:var(--orange);
+  color:#160805;
+  overflow:hidden;
+  padding:14px 0;
+}
+
+.ticker-track{
+  width:max-content;
+  display:flex;
+  animation:marquee 28s linear infinite;
+}
+
+.ticker span{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.ticker span::after{
+  content:"✦";
+  margin:0 28px;
+}
+
+@keyframes marquee{
+  to{transform:translateX(-50%)}
+}
+
+/* INTRO */
+
+.intro-grid{
+  display:grid;
+  grid-template-columns:.55fr 1.45fr;
+  gap:80px;
+}
+
+.intro h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(52px,7vw,102px);
+  font-weight:500;
+  letter-spacing:-5px;
+  line-height:.91;
+}
+
+.intro h2 span{
+  color:#5d5046;
+}
+
+.intro-bottom{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin-top:80px;
+  padding-top:35px;
+  border-top:1px solid var(--line);
+}
+
+.intro-bottom p{
+  max-width:570px;
+  color:#8e8277;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.big-word{
+  text-align:right;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(70px,9vw,135px);
+  line-height:.75;
+  color:#15100c;
+  -webkit-text-stroke:1px #4b382e;
+}
+
+/* CINEMA */
+
+.cinema{
+  width:96%;
+  margin:auto;
+  height:82vh;
+  min-height:650px;
+  position:relative;
+  overflow:hidden;
+}
+
+.cinema img{
+  height:100%;
+  object-fit:cover;
+}
+
+.cinema::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(7,3,2,.94),rgba(7,3,2,.03) 65%);
+}
+
+.cinema-content{
+  position:absolute;
+  z-index:2;
+  left:5%;
+  right:5%;
+  bottom:50px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.cinema h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,8vw,120px);
+  font-weight:500;
+  letter-spacing:-7px;
+  line-height:.8;
+}
+
+.cinema h2 em{
+  color:var(--orange2);
+}
+
+.cinema p{
+  max-width:390px;
+  color:#c0afa0;
+  line-height:1.8;
+  font-size:12px;
+}
+
+/* MENU */
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:50px;
+  margin-bottom:65px;
+}
+
+.section-head h2{
+  margin-top:15px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,8vw,112px);
+  line-height:.83;
+  letter-spacing:-7px;
+  font-weight:500;
+}
+
+.section-head p{
+  max-width:430px;
+  color:#82766b;
+  line-height:1.9;
+  font-size:12px;
+}
+
+.demo-note{
+  border:1px solid rgba(255,113,64,.35);
+  background:rgba(217,74,33,.07);
+  padding:17px 20px;
+  color:#bfa99a;
+  font-size:10px;
+  line-height:1.7;
+  margin-bottom:35px;
+}
+
+.demo-note strong{
+  color:var(--orange2);
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.food-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:.35s;
+}
+
+.food-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(255,113,64,.4);
+}
+
+.food-image{
+  height:330px;
+  overflow:hidden;
+  position:relative;
+}
+
+.food-image img{
+  height:100%;
+  object-fit:cover;
+  transition:.7s;
+}
+
+.food-card:hover .food-image img{
+  transform:scale(1.04);
+}
+
+.demo-badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  background:rgba(8,6,4,.82);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.15);
+  padding:8px 10px;
+  font-size:7px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.food-body{
+  padding:26px;
+}
+
+.food-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  gap:15px;
+}
+
+.food-body h3{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  font-weight:500;
+}
+
+.food-price{
+  font-size:17px;
+  color:var(--orange2);
+  font-weight:600;
+}
+
+.food-meta{
+  margin-top:12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.food-meta span{
+  padding:7px 9px;
+  border:1px solid var(--line);
+  color:#9e9084;
+  font-size:8px;
+  letter-spacing:1px;
+}
+
+.food-body p{
+  margin-top:18px;
+  color:#776d64;
+  line-height:1.8;
+  font-size:11px;
+}
+
+/* EXPERIENCE */
+
+.experience{
+  background:#e7d8c1;
+  color:#100a06;
+}
+
+.experience-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:850px;
+}
+
+.experience-image{
+  overflow:hidden;
+}
+
+.experience-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.experience-content{
+  padding:85px 7vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.experience-content .micro{
+  color:#6e5c4b;
+}
+
+.experience h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,7vw,100px);
+  line-height:.84;
+  letter-spacing:-6px;
+  font-weight:500;
+}
+
+.experience h2 span{
+  color:#a18970;
+}
+
+.experience-list{
+  border-top:1px solid rgba(0,0,0,.22);
+}
+
+.exp-item{
+  padding:22px 0;
+  border-bottom:1px solid rgba(0,0,0,.16);
+  display:grid;
+  grid-template-columns:45px 1fr;
+  gap:15px;
+}
+
+.exp-item small{
+  font-size:8px;
+  color:#947b64;
+}
+
+.exp-item strong{
+  font-size:13px;
+  font-weight:600;
+}
+
+.exp-item p{
+  margin-top:6px;
+  color:#665748;
+  line-height:1.7;
+  font-size:11px;
+}
+
+/* STORY / MASTER */
+
+.master{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:90px;
+  align-items:center;
+}
+
+.master-photo{
+  height:720px;
+  overflow:hidden;
+}
+
+.master-photo img{
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.8);
+}
+
+.master-copy h2{
+  margin:18px 0 35px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(50px,6.5vw,92px);
+  line-height:.88;
+  letter-spacing:-5px;
+  font-weight:500;
+}
+
+.master-copy h2 span{
+  color:#554940;
+}
+
+.master-copy p{
+  max-width:570px;
+  color:#8c8075;
+  font-size:13px;
+  line-height:1.95;
+}
+
+.story-placeholder{
+  margin-top:35px;
+  padding:20px;
+  border-left:2px solid var(--orange);
+  background:#100b08;
+  color:#9d8f83;
+  font-size:10px;
+  line-height:1.8;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  grid-template-rows:390px 390px;
+  gap:12px;
+}
+
+.gallery-item{
+  overflow:hidden;
+  position:relative;
+}
+
+.gallery-item:first-child{
+  grid-row:1/3;
+}
+
+.gallery-item img{
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.8) saturate(.85);
+  transition:.7s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.04);
+  filter:brightness(.95);
+}
+
+.gallery-label{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  background:rgba(8,6,4,.8);
+  padding:9px 11px;
+  font-size:7px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* SERVICES */
+
+.digital{
+  background:#100b08;
+}
+
+.digital-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+  margin-top:60px;
+}
+
+.digital-card{
+  min-height:260px;
+  padding:30px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.3s;
+}
+
+.digital-card:hover{
+  background:#18100c;
+}
+
+.digital-icon{
+  font-size:27px;
+  color:var(--orange2);
+}
+
+.digital-card h3{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:500;
+}
+
+.digital-card p{
+  color:#75695f;
+  font-size:10px;
+  line-height:1.7;
+}
+
+/* MANIFESTO */
+
+.manifesto{
+  background:var(--orange);
+  color:#160805;
+  padding:135px 0;
+}
+
+.manifesto .micro{
+  color:#572012;
+}
+
+.manifesto h2{
+  max-width:1300px;
+  margin-top:30px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(47px,7vw,104px);
+  line-height:.92;
+  letter-spacing:-6px;
+  font-weight:500;
+}
+
+.manifesto h2 span{
+  color:rgba(22,8,5,.32);
+}
+
+/* CONTACT */
+
+.contact{
+  min-height:95vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+.contact-bg{
+  position:absolute;
+  inset:0;
+}
+
+.contact-bg img{
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.27);
+}
+
+.contact-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#080604,rgba(8,6,4,.8) 55%,rgba(8,6,4,.2));
+}
+
+.contact-content{
+  position:relative;
+  z-index:2;
+  padding:120px 0;
+}
+
+.contact h2{
+  margin:25px 0 45px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(70px,11vw,160px);
+  line-height:.73;
+  letter-spacing:-9px;
+  font-weight:500;
+}
+
+.contact h2 span{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(243,230,208,.55);
+}
+
+.contact-data{
+  max-width:950px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+  margin-bottom:35px;
+}
+
+.contact-box{
+  padding:24px 25px 24px 0;
+}
+
+.contact-box small{
+  display:block;
+  margin-bottom:8px;
+  color:#71665d;
+  font-size:7px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.contact-box strong{
+  font-size:13px;
+  font-weight:500;
+}
+
+/* FAQ */
+
+.faq-list{
+  max-width:1000px;
+  margin-top:55px;
+}
+
+.faq{
+  border-top:1px solid var(--line);
+}
+
+.faq:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+.faq button{
+  width:100%;
+  background:none;
+  border:0;
+  color:var(--cream);
+  padding:25px 0;
+  display:flex;
+  justify-content:space-between;
+  text-align:left;
+  cursor:pointer;
+}
+
+.faq button strong{
+  font-family:"Playfair Display",serif;
+  font-size:21px;
+  font-weight:500;
+}
+
+.faq button span{
+  color:var(--orange2);
+  font-size:20px;
+  transition:.3s;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:.4s ease;
+}
+
+.faq-answer p{
+  padding:0 50px 25px 0;
+  color:#7f746a;
+  font-size:11px;
+  line-height:1.8;
+}
+
+.faq.open .faq-answer{
+  max-height:250px;
+}
+
+.faq.open button span{
+  transform:rotate(45deg);
+}
+
+/* PREVIEW */
+
+.preview{
+  background:#120c08;
+  border-top:1px solid var(--line);
+  padding:42px 0;
+}
+
+.preview-grid{
+  display:grid;
+  grid-template-columns:.65fr 1.35fr;
+  gap:60px;
+}
+
+.preview p{
+  color:#75695f;
+  font-size:9px;
+  line-height:1.9;
+}
+
+/* FOOTER */
+
+footer{
+  background:#050302;
+  padding:50px 0;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:end;
+  gap:40px;
+}
+
+.footer-logo{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,6vw,82px);
+  line-height:.85;
+}
+
+.footer-logo em{
+  color:var(--orange2);
+}
+
+.footer-right{
+  text-align:right;
+  color:#524941;
+  font-size:8px;
+  line-height:1.9;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+  .nav-links{display:none}
+  .mobile-menu{display:block}
+
+  .hero-bottom,
+  .section-head,
+  .cinema-content{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .intro-grid,
+  .intro-bottom,
+  .master,
+  .preview-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .big-word{text-align:left}
+
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .experience-grid{
+    grid-template-columns:1fr;
+  }
+
+  .experience-image{
+    min-height:650px;
+  }
+
+  .digital-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-right{text-align:left}
+}
+
+@media(max-width:650px){
+  nav{height:72px}
+
+  .section{padding:95px 0}
+
+  .hero{
+    min-height:94svh;
+  }
+
+  .hero-content{
+    padding-bottom:40px;
+  }
+
+  .hero h1{
+    font-size:clamp(62px,20vw,100px);
+    letter-spacing:-4px;
+  }
+
+  .hero-bottom{
+    margin-top:30px;
+  }
+
+  .actions{
+    width:100%;
+  }
+
+  .actions .btn{
+    flex:1;
+    padding:0 12px;
+  }
+
+  .intro h2,
+  .section-head h2,
+  .master-copy h2{
+    letter-spacing:-3px;
+  }
+
+  .intro-bottom{
+    gap:35px;
+    margin-top:55px;
+  }
+
+  .cinema{
+    width:100%;
+    min-height:690px;
+  }
+
+  .cinema h2{
+    letter-spacing:-4px;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+  .food-image{
+    height:300px;
+  }
+
+  .experience-content{
+    padding:65px 28px;
+    min-height:680px;
+  }
+
+  .experience h2{
+    letter-spacing:-4px;
+  }
+
+  .master{
+    gap:45px;
+  }
+
+  .master-photo{
+    height:520px;
+  }
+
+  .gallery-grid{
+    display:block;
+  }
+
+  .gallery-item{
+    height:370px;
+    margin-bottom:10px;
+  }
+
+  .digital-grid{
+    grid-template-columns:1fr;
+  }
+
+  .digital-card{
+    min-height:210px;
+  }
+
+  .manifesto{
+    padding:100px 0;
+  }
+
+  .manifesto h2{
+    letter-spacing:-4px;
+  }
+
+  .contact{
+    min-height:850px;
+  }
+
+  .contact h2{
+    letter-spacing:-6px;
+  }
+
+  .contact-data{
+    grid-template-columns:1fr;
+  }
+
+  .contact-box{
+    border-bottom:1px solid var(--line);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-logo">
+    Ceyhan <em>Kebap</em>
+    <small>ADANA · OCAKBAŞI</small>
+    <div class="load-line"></div>
+  </div>
+</div>
+
+<nav id="nav">
+  <div class="container nav-inner">
+
+    <a href="#home" class="logo">
+      Ceyhan <em>Kebap</em>
+      <small>ADANA · OCAKBAŞI</small>
+    </a>
+
+    <div class="nav-links">
+      <a href="#hikaye">Hikâye</a>
+      <a href="#menu">Menü</a>
+      <a href="#deneyim">Deneyim</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#iletisim" class="nav-cta">Bize Ulaşın</a>
+    </div>
+
+    <div class="mobile-menu">CEYHAN · ADANA</div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+  <div class="hero-media">
+    <img
+      src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=2200&q=92"
+      alt="Temsilî ocakbaşı atmosferi">
+  </div>
+
+  <div class="hero-glow"></div>
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      Adana · Ocakbaşı · Sofra
+    </div>
+
+    <h1>
+      ATEŞTEN<br>
+      <span>SOFRAYA.</span>
+    </h1>
+
+    <div class="hero-bottom">
+
+      <p class="hero-copy">
+        Ateşin karakteri, ustalığın dokunuşu ve
+        Adana sofra kültürü. Ceyhan Kebap Salonu için
+        tasarlanan premium dijital restoran deneyimi.
+      </p>
+
+      <div class="actions">
+        <a href="#menu" class="btn">
+          Menüyü Keşfet ↘
+        </a>
+
+        <a href="tel:+903224586990" class="btn outline">
+          Telefon ↗
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-track">
+
+    <span>CEYHAN KEBAP</span>
+    <span>ADANA KEBAP</span>
+    <span>KÜŞLEME</span>
+    <span>CİĞER ŞİŞ</span>
+    <span>DANA KABURGA</span>
+    <span>OCAKBAŞI</span>
+    <span>ATEŞTEN SOFRAYA</span>
+
+    <span>CEYHAN KEBAP</span>
+    <span>ADANA KEBAP</span>
+    <span>KÜŞLEME</span>
+    <span>CİĞER ŞİŞ</span>
+    <span>DANA KABURGA</span>
+    <span>OCAKBAŞI</span>
+    <span>ATEŞTEN SOFRAYA</span>
+
+  </div>
+</div>
+
+<!-- INTRO -->
+
+<section class="section intro" id="hikaye">
+
+  <div class="container">
+
+    <div class="intro-grid reveal">
+
+      <div class="micro">
+        01 / CEYHAN KEBAP
+      </div>
+
+      <h2>
+        Bir restoran değil,
+        <span>hatırlanan bir sofra.</span>
+      </h2>
+
+    </div>
+
+    <div class="intro-bottom reveal">
+
+      <p>
+        Ceyhan Kebap'ın dijital vitrini için hazırlanan bu
+        deneyim; işletmenin yemeklerini, mekânını ve
+        karakterini ziyaretçinin daha restorana gelmeden
+        hissedebileceği şekilde sunmak üzere tasarlandı.
+        <br><br>
+        Final yayında bu alan işletmenin kendi kuruluş
+        hikâyesi, ustalık anlayışı ve onayladığı gerçek
+        marka anlatımıyla tamamen kişiselleştirilir.
+      </p>
+
+      <div class="big-word">
+        CEYHAN
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CINEMA -->
+
+<section class="cinema reveal">
+
+  <img
+    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=2200&q=92"
+    alt="Temsilî ızgara sunumu">
+
+  <div class="cinema-content">
+
+    <h2>
+      ATEŞ.<br>
+      USTALIK.<br>
+      <em>SOFRA.</em>
+    </h2>
+
+    <p>
+      Final projede bu alan Ceyhan Kebap'ın gerçek
+      ocak, hazırlık, ürün ve servis görüntüleriyle
+      işletmenin kendi görsel hikâyesine dönüştürülür.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- MENU -->
+
+<section class="section" id="menu">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+        <div class="micro">02 / MENÜ DENEYİMİ</div>
+
+        <h2>
+          İMZA<br>
+          LEZZETLER.
+        </h2>
+      </div>
+
+      <p>
+        Müşterinin ürün fotoğrafı, ürün adı, porsiyon,
+        gramaj, açıklama ve fiyatı tek bakışta
+        görebileceği modern menü sistemi.
+      </p>
+
+    </div>
+
+    <div class="demo-note reveal">
+      <strong>ÖNİZLEME NOTU:</strong>
+      Aşağıdaki gramaj, porsiyon, fiyat ve ürün açıklamaları
+      yalnızca menü sisteminin nasıl görüneceğini göstermek
+      amacıyla kullanılan örnek verilerdir. İşletmenin güncel
+      menüsü değildir. Final sürümde Ceyhan Kebap tarafından
+      sağlanan doğrulanmış bilgiler kullanılır.
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card reveal">
+
+        <div class="food-image">
+          <img
+            src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1000&q=88"
+            alt="Temsilî kebap görseli">
+
+          <span class="demo-badge">
+            Temsilî Fotoğraf
+          </span>
+        </div>
+
+        <div class="food-body">
+
+          <div class="food-top">
+            <h3>Adana Kebap</h3>
+            <div class="food-price">₺---</div>
+          </div>
+
+          <div class="food-meta">
+            <span>1 Porsiyon</span>
+            <span>--- g</span>
+          </div>
+
+          <p>
+            Ürünün gerçek içeriği, servis şekli ve
+            porsiyon bilgisi işletmenin güncel menüsüne
+            göre buraya yerleştirilir.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="food-card reveal">
+
+        <div class="food-image">
+          <img
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=88"
+            alt="Temsilî et görseli">
+
+          <span class="demo-badge">
+            Temsilî Fotoğraf
+          </span>
+        </div>
+
+        <div class="food-body">
+
+          <div class="food-top">
+            <h3>Küşleme</h3>
+            <div class="food-price">₺---</div>
+          </div>
+
+          <div class="food-meta">
+            <span>1 Porsiyon</span>
+            <span>--- g</span>
+          </div>
+
+          <p>
+            Güncel ürün açıklaması, porsiyon,
+            gramaj ve fiyat işletme tarafından
+            doğrulandıktan sonra eklenir.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="food-card reveal">
+
+        <div class="food-image">
+          <img
+            src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1000&q=88"
+            alt="Temsilî ızgara görseli">
+
+          <span class="demo-badge">
+            Temsilî Fotoğraf
+          </span>
+        </div>
+
+        <div class="food-body">
+
+          <div class="food-top">
+            <h3>Ciğer Şiş</h3>
+            <div class="food-price">₺---</div>
+          </div>
+
+          <div class="food-meta">
+            <span>1 Porsiyon</span>
+            <span>--- g</span>
+          </div>
+
+          <p>
+            İşletmenin gerçek ürün fotoğrafı ve
+            güncel menü bilgileriyle final hâline
+            getirilecek örnek ürün kartı.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="food-card reveal">
+
+        <div class="food-image">
+          <img
+            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=88"
+            alt="Temsilî restoran yemeği">
+
+          <span class="demo-badge">
+            Temsilî Fotoğraf
+          </span>
+        </div>
+
+        <div class="food-body">
+
+          <div class="food-top">
+            <h3>Dana Kaburga Şiş</h3>
+            <div class="food-price">₺---</div>
+          </div>
+
+          <div class="food-meta">
+            <span>1 Porsiyon</span>
+            <span>--- g</span>
+          </div>
+
+          <p>
+            Gerçek servis içeriği, gramaj ve fiyat
+            Ceyhan Kebap'ın onayladığı menüden alınır.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="food-card reveal">
+
+        <div class="food-image">
+          <img
+            src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=88"
+            alt="Temsilî meze ve sofra">
+
+          <span class="demo-badge">
+            Temsilî Fotoğraf
+          </span>
+        </div>
+
+        <div class="food-body">
+
+          <div class="food-top">
+            <h3>Mezeler</h3>
+            <div class="food-price">₺---</div>
+          </div>
+
+          <div class="food-meta">
+            <span>Günlük Seçenekler</span>
+          </div>
+
+          <p>
+            İşletmenin sunduğu gerçek meze çeşitleri
+            ayrı ürünler veya kategori şeklinde
+            bu alanda sergilenebilir.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="food-card reveal">
+
+        <div class="food-image">
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=88"
+            alt="Temsilî sofra görseli">
+
+          <span class="demo-badge">
+            Yeni Ürün Alanı
+          </span>
+        </div>
+
+        <div class="food-body">
+
+          <div class="food-top">
+            <h3>Menüden Seçim</h3>
+            <div class="food-price">₺---</div>
+          </div>
+
+          <div class="food-meta">
+            <span>Porsiyon</span>
+            <span>Gramaj</span>
+          </div>
+
+          <p>
+            İşletmenin öne çıkarmak istediği başka
+            bir ürün bu karta gerçek fotoğrafı ve
+            bilgileriyle eklenebilir.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="experience" id="deneyim">
+
+  <div class="experience-grid">
+
+    <div class="experience-image">
+      <img
+        src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=90"
+        alt="Temsilî restoran sofrası">
+    </div>
+
+    <div class="experience-content">
+
+      <div>
+        <div class="micro">
+          03 / CEYHAN DENEYİMİ
+        </div>
+
+        <h2>
+          MASAYA<br>
+          OTURMADAN<br>
+          <span>BAŞLAR.</span>
+        </h2>
+      </div>
+
+      <div class="experience-list">
+
+        <div class="exp-item">
+          <small>01</small>
+          <div>
+            <strong>Gerçek Menü</strong>
+            <p>
+              Güncel ürünler, fiyatlar, porsiyonlar ve
+              işletmenin paylaşmak istediği gramaj bilgileri.
+            </p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <small>02</small>
+          <div>
+            <strong>Gerçek Fotoğraflar</strong>
+            <p>
+              Yemek, ocak, salon, dış cephe ve işletmenin
+              onayladığı ekip görüntüleri.
+            </p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <small>03</small>
+          <div>
+            <strong>Kolay İletişim</strong>
+            <p>
+              Telefon, WhatsApp, harita ve sosyal medya
+              bağlantılarının müşteriye tek dokunuşla sunulması.
+            </p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <small>04</small>
+          <div>
+            <strong>Mobil Deneyim</strong>
+            <p>
+              Telefon, tablet ve bilgisayarda uyumlu
+              premium arayüz.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BRAND STORY -->
+
+<section class="section">
+
+  <div class="container master">
+
+    <div class="master-photo reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=88"
+        alt="Temsilî restoran atmosferi">
+
+    </div>
+
+    <div class="master-copy reveal">
+
+      <div class="micro">
+        04 / MARKA HİKÂYESİ
+      </div>
+
+      <h2>
+        HER MARKANIN<br>
+        <span>BİR HİKÂYESİ VAR.</span>
+      </h2>
+
+      <p>
+        Bu bölüm Ceyhan Kebap'ın gerçek kuruluş hikâyesine
+        ayrılmıştır. İşletmenin ne zaman ve kim tarafından
+        kurulduğu, Ceyhan isminin hikâyesi, mutfak anlayışı,
+        ustalık geleneği ve müşterilerine vermek istediği
+        mesaj burada profesyonel bir marka anlatısına
+        dönüştürülebilir.
+      </p>
+
+      <div class="story-placeholder">
+        <strong>FİNAL İÇİN GEREKLİ:</strong><br>
+        Kuruluş yılı · Kurucunun hikâyesi · İşletmenin
+        farkı · Ustalık anlayışı · Öne çıkan ürün ·
+        İşletmenin müşterisine vermek istediği mesaj.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section" id="galeri">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+        <div class="micro">
+          05 / GALERİ
+        </div>
+
+        <h2>
+          MEKÂN.<br>
+          OCAK. SOFRA.
+        </h2>
+      </div>
+
+      <p>
+        Final sürümde temsilî görseller kaldırılır;
+        Ceyhan Kebap'ın gerçek ürün ve mekân
+        fotoğrafları kullanılır.
+      </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1500&q=90"
+          alt="Temsilî restoran">
+        <span class="gallery-label">
+          Mekân · Temsilî
+        </span>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=90"
+          alt="Temsilî yemek">
+        <span class="gallery-label">
+          Ürün · Temsilî
+        </span>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=90"
+          alt="Temsilî ocak">
+        <span class="gallery-label">
+          Ocak · Temsilî
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- DIGITAL SYSTEM -->
+
+<section class="section digital">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+        <div class="micro">
+          06 / DİJİTAL DENEYİM
+        </div>
+
+        <h2>
+          HER ŞEY<br>
+          TEK YERDE.
+        </h2>
+      </div>
+
+      <p>
+        Restorana ulaşmak isteyen ziyaretçinin
+        ihtiyaç duyduğu temel bağlantılar tek bir
+        mobil deneyimde birleştirilebilir.
+      </p>
+
+    </div>
+
+    <div class="digital-grid">
+
+      <div class="digital-card reveal">
+        <div class="digital-icon">☎</div>
+        <div>
+          <h3>Telefon</h3>
+          <p>
+            Tek dokunuşla işletmeyi arama.
+          </p>
+        </div>
+      </div>
+
+      <div class="digital-card reveal">
+        <div class="digital-icon">◉</div>
+        <div>
+          <h3>WhatsApp</h3>
+          <p>
+            İşletme kullanıyorsa sipariş veya
+            iletişim için doğrudan yönlendirme.
+          </p>
+        </div>
+      </div>
+
+      <div class="digital-card reveal">
+        <div class="digital-icon">⌖</div>
+        <div>
+          <h3>Google Maps</h3>
+          <p>
+            Doğrulanmış işletme konumuna
+            tek dokunuşla navigasyon.
+          </p>
+        </div>
+      </div>
+
+      <div class="digital-card reveal">
+        <div class="digital-icon">◎</div>
+        <div>
+          <h3>Instagram</h3>
+          <p>
+            İşletmenin doğrulanmış sosyal medya
+            hesabına doğrudan geçiş.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MANIFESTO -->
+
+<section class="manifesto">
+
+  <div class="container">
+
+    <div class="micro reveal">
+      CEYHAN / DİJİTAL SOFRA
+    </div>
+
+    <h2 class="reveal">
+      Önce ateş yanar.
+      <span>Sonra ustalık konuşur.</span>
+      Sofra kurulur.
+      <span>Lezzet paylaşılır.</span>
+      Ve marka hatırlanır.
+    </h2>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="iletisim">
+
+  <div class="contact-bg">
+
+    <img
+      src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=90"
+      alt="Temsilî restoran atmosferi">
+
+  </div>
+
+  <div class="container contact-content">
+
+    <div class="micro">
+      07 / İLETİŞİM
+    </div>
+
+    <h2>
+      SOFRA<br>
+      <span>HAZIR.</span>
+    </h2>
+
+    <div class="contact-data">
+
+      <div class="contact-box">
+        <small>İşletme</small>
+        <strong>Ceyhan Kebap Salonu</strong>
+      </div>
+
+      <div class="contact-box">
+        <small>Lokasyon</small>
+        <strong>Seyhan · Adana</strong>
+      </div>
+
+      <div class="contact-box">
+        <small>Telefon</small>
+        <strong>0322 458 69 90</strong>
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <a
+        href="tel:+903224586990"
+        class="btn">
+        Telefonla Ara ↗
+      </a>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Ceyhan+Kebap+Salonu+Seyhan+Adana"
+        target="_blank"
+        rel="noopener"
+        class="btn outline">
+        Yol Tarifi ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="micro reveal">
+      08 / BİLGİ
+    </div>
+
+    <div class="section-head reveal">
+      <h2>
+        MERAK<br>
+        EDİLENLER.
+      </h2>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <div class="faq">
+        <button type="button">
+          <strong>Güncel menüyü nereden görebilirim?</strong>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Bu sayfadaki menü alanı şu anda tasarım
+            önizlemesidir. Final sürümde işletmenin
+            doğruladığı güncel menü ve fiyat bilgileri
+            burada yayınlanabilir.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button type="button">
+          <strong>Restorana nasıl ulaşabilirim?</strong>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            İletişim bölümündeki telefon ve yol tarifi
+            seçeneklerini kullanabilirsiniz. Final sürümde
+            işletmenin doğruladığı kesin adres ve Google
+            işletme bağlantısı kullanılacaktır.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button type="button">
+          <strong>WhatsApp üzerinden iletişim kurulabilir mi?</strong>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            İşletmenin kullanmak istediği doğrulanmış
+            WhatsApp hattı alınırsa final sürümde
+            tek dokunuşla WhatsApp bağlantısı eklenebilir.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button type="button">
+          <strong>Rezervasyon veya paket servis var mı?</strong>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Bu bilgiler işletme tarafından doğrulandıktan
+            sonra rezervasyon, paket servis veya üçüncü
+            taraf sipariş platformlarına yönlendirme
+            sisteme eklenebilir.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PREVIEW DISCLAIMER -->
+
+<section class="preview">
+
+  <div class="container preview-grid">
+
+    <div class="micro">
+      TASARIM ÖNİZLEMESİ
+    </div>
+
+    <p>
+      Bu sayfa Ceyhan Kebap Salonu'na sunulmak üzere
+      bağımsız olarak hazırlanmış bir web sitesi tasarım
+      önizlemesidir; işletmenin resmî web sitesi olduğu veya
+      işletme tarafından onaylandığı iddia edilmemektedir.
+      Temsilî fotoğraflar Ceyhan Kebap Salonu'na ait oldukları
+      anlamına gelmez. Örnek fiyat, gramaj ve porsiyon alanları
+      yalnızca final menü deneyimini göstermek amacıyla
+      hazırlanmıştır. İşletmenin onayından sonra tüm temsilî
+      içerikler doğrulanmış işletme materyalleriyle değiştirilebilir.
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="container footer-grid">
+
+    <div class="footer-logo">
+      Ceyhan <em>Kebap.</em>
+    </div>
+
+    <div class="footer-right">
+      CEYHAN KEBAP SALONU · ADANA<br>
+      PREMIUM RESTAURANT DIGITAL CONCEPT<br><br>
+      © 2026 · Tasarım Önizlemesi
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+/* Loader */
+
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").classList.add("hide");
+  },650);
+});
+
+/* Navigation */
+
+const nav=document.getElementById("nav");
+
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>40){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+});
+
+/* Reveal */
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{
+  threshold:.1
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
+});
+
+/* FAQ */
+
+document.querySelectorAll(".faq button").forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    const current=button.parentElement;
+
+    document.querySelectorAll(".faq").forEach(item=>{
+      if(item!==current){
+        item.classList.remove("open");
+      }
+    });
+
+    current.classList.toggle("open");
+
+  });
+
+});
+
+/* Hero parallax */
+
+const heroImage=document.querySelector(".hero-media img");
+
+window.addEventListener("scroll",()=>{
+
+  if(
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ){
+    return;
+  }
+
+  const y=Math.min(window.scrollY*.055,40);
+
+  heroImage.style.transform=
+    `scale(1.04) translateY(${y}px)`;
+
+},{passive:true});
+
+</script>
+
+</body>
+</html>
